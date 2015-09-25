@@ -33,6 +33,34 @@ function env(g) {
       8: 'M', // Clyde
       9: '#', // portal
     },
+    reset: function(x, y) {
+      var t = this.tiles[y][x];
+      this.nodes[y][x].className = 'tile t-' + t;
+      this.nodes[y][x].innerHTML = this.types[t];
+    },
+    visit: function(x, y) {
+      var t = this.tiles[y][x];
+      if (t == 0) {
+        g.updateScore();
+        this.tiles[y][x] = 1;
+      }
+      return t;
+    },
+    tileDirection: function(x, y, d) {
+      if (d == 0) {
+          return this.tiles[y - 1][x];
+      } else if (d == 1) {
+          return this.tiles[y][x + 1];
+      } else if (d == 2) {
+          return this.tiles[y + 1][x];
+      } else if (d == 3) {
+          return this.tiles[y][x - 1];
+      }
+      return this.tiles[y][x];
+    },
+    setNode: function(i, j, type) {
+
+    },
     nodes: [],
     init: function() {
       var r = '';

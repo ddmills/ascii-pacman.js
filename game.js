@@ -3,10 +3,14 @@ window.game = {
     arena: document.getElementById('arena'),
     score: document.getElementById('score')
   },
+  score: 0,
   config: {
     speed: 300,
-    score: 0,
     won: false
+  },
+  updateScore: function() {
+    this.score++;
+    this.container.score.innerHTML = this.score;
   },
   meta: {
     tick: 0,
