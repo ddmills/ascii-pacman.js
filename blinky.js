@@ -40,7 +40,7 @@ function blinky(g) {
       var down = g.env.tileDirection(this.x, this.y + 1);
       var left = g.env.tileDirection(this.x - 1, this.y);
 
-      up = up == 10 || up == 2 || right == 9 ? 1 : 0;
+      up = up == 10 || up == 2 || up == 9 ? 1 : 0;
       right = right == 10 || right == 2 || right == 9 ? 1 : 0;
       down = down == 10 || down == 2 || down == 9 ? 1 : 0;
       left = left == 10 || left == 2 || left == 9 ? 1 : 0;
@@ -48,9 +48,6 @@ function blinky(g) {
       var sum = up + right + down + left;
 
       if (sum < 2) {
-        // ghost hit intersection, re-evaluate
-        console.log('HIT INTER');
-
         var minDist = 100000;
         var minDir = 0;
 
@@ -90,14 +87,12 @@ function blinky(g) {
           }
         }
 
-        console.log(this.direction, minDir, minDist);
-        // this.direction = minDir;
         this.direction = minDir;
       }
 
       var next = g.env.tileDirection(this.x, this.y, this.direction);
 
-      if (next == undefined || next == 2) {
+      if (next == undefined || next == 2 || next == 9) {
         if (!up && this.direction != 2) {
           this.direction = 0;
         } else if (!right && this.direction != 3) {
