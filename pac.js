@@ -1,38 +1,3 @@
-/*
- * 1 = empty
- * 0 = bead
- * 2 = wall
- * 3 = super
- * 4 = pacman
- */
-
-var map = [
-[3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 3],
-[0, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0],
-[0, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0],
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-[2, 2, 0 ,2, 2, 0, 2, 2, 0, 2, 2],
-[4, 0, 0 ,2, 1, 1, 1, 2, 0, 0, 0],
-[0, 2, 0 ,2, 1, 5, 1, 2, 0, 2, 0],
-[0, 2, 0 ,2, 2, 2, 2, 2, 0, 2, 0],
-[0, 2, 0 ,2, 0, 0, 0, 2, 0, 2, 0],
-[0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
-[2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2],
-[0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
-[0, 2, 2, 2, 0, 0, 0, 2, 2, 2, 0],
-[3, 0, 0 ,0, 0, 2, 0, 0, 0, 0, 3],];
-
-var tiles = {
-    0: '<span class="t t-0"> &middot; </span>',
-    1: '<span class="t t-1"> &nbsp; </span>',
-    2: '<span class="t t-2"> &squ; </span>',
-    3: '<span class="t t-3"> &hercon; </span>',
-    4: '<span class="t t-4"> o </span>',
-    5: '<span class="t t-5"> M </span>',
-    6: '<span class="t t-6"> M </span>',
-    7: '<span class="t t-7"> M </span>',
-    8: '<span class="t t-8"> M </span>',
-}
 
 /*
  * 0 = up
@@ -135,21 +100,4 @@ var interval = setInterval(function() {
     }
 }, 300);
 
-var c_map = {
-    '119': '0',
-    '100': '1',
-    '115': '2',
-    '97': '3',
-}
-
-document.onkeypress = function(e) {
-    var e = window.event || e;
-    var c = e.charCode;
-    var n_dir = c_map[c] ? c_map[c] : dir;
-    var n_tile = tile_d(n_dir);
-    desire = n_dir;
-    if (n_tile != undefined && n_tile != 2) {
-        dir = n_dir;
-    }
-}
 render();

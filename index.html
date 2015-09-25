@@ -10,7 +10,8 @@
             text-align: center;
             font-family: consolas,monospace;
             white-space: nowrap; }
-        .t {
+        .row { display: block; }
+        .tile {
             margin: 0;
             line-height: 16px;
             display: inline-block;
@@ -18,10 +19,12 @@
             width: 22px;
             line-height: 18px;
             text-align: center; }
-        .t-2 { color: cyan; }
-        .t-4 { color: orange; }
-        .t-5, .t-6 { color: pink; }
-        #a {
+        .t-2 { color: #7272FD; }
+        .t-4 { color: yellow; }
+        .t-5 { color: red; }
+        .t-6 { color: cyan; }
+        .t-7 { color: orange; }
+        #arena {
             font-family: consolas,monospace;
             font-size: 16px;
             display: inline-block;
@@ -35,8 +38,13 @@
     <br />
     <p> P A C M A N </P>
     <p> W A S D </p>
-    <div id='a'></div>
-    <p>- <span id='s'>0</span> -</p>
-    <script src='pac.js'></script>
+    <div id='arena'></div>
+    <p>- <span id='score'>0</span> -</p>
+    <!-- <script src='game.js'></script> -->
+    <!-- <script src='pac.js'></script> -->
+    <script src='env.js'></script>
+    <script src='blinky.js'></script>
+    <script src='pacman.js'></script>
+    <script src='game.js'></script>
 <body>
 </head>
