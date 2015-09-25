@@ -34,16 +34,15 @@ function pacman(g) {
     },
     init: function() {
       document.onkeydown = this.onKey.bind(this);
+      this.render();
     },
     updatePosition: function() {
       var next = g.env.tileDirection(this.x, this.y, this.desire);
-      console.log(this.desire);
       if (next != undefined && next != 2) {
         this.direction = this.desire;
       } else {
         next = g.env.tileDirection(this.x, this.y, this.direction);
       }
-
       if (next != undefined && next != 2) {
         switch (this.direction) {
         case 0:

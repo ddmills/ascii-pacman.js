@@ -8,7 +8,7 @@ function env(g) {
       [2, 0, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0, 2],
       [2, 0, 2, 2, 2, 0, 2, 0, 2, 2, 2, 0, 2],
       [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-      [2, 2, 2, 0 ,2, 2, 0, 2, 2, 0, 2, 2, 2],
+      [2, 2, 2, 0 ,2, 2, 10, 2, 2, 0, 2, 2, 2],
       [2, 0, 0, 0 ,2, 1, 1, 1, 2, 0, 0, 0, 2],
       [2, 0, 2, 0 ,2, 1, 1, 1, 2, 0, 2, 0, 2],
       [2, 0, 2, 0 ,2, 2, 2, 2, 2, 0, 2, 0, 2],
@@ -32,6 +32,7 @@ function env(g) {
       7: 'M', // Inky
       8: 'M', // Clyde
       9: '#', // portal
+      10: '-', // door
     },
     reset: function(x, y) {
       var t = this.tiles[y][x];
@@ -86,6 +87,17 @@ function env(g) {
     },
     update: function(tick) {
       // console.log(tick);
+    },
+    dist: function(x, y, tx, ty) {
+      return ;
+    },
+    isIntersection: function(x, y) {
+      var up = this.tileDirection(x, y - 1) == 2 ? 1 : 0;
+      var right = this.tileDirection(x + 1, y) == 2 ? 1 : 0;
+      var down = this.tileDirection(x, y + 1) == 2 ? 1 : 0;
+      var left = this.tileDirection(x - 1, y) == 2 ? 1 : 0;
+      var sum = up + right + down + left;
+      return sum < 2;
     }
   }
 
